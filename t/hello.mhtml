@@ -1,0 +1,4 @@
+% my $var = "Foo";
+Hello World <% $var %>
+<% do { join ",", $r->params } %>
+
