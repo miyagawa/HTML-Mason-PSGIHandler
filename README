@@ -1,11 +1,23 @@
 NAME
-    HTML::Mason::PSGIHandler -
+    HTML::Mason::PSGIHandler - PSGI handler for HTML::Mason
 
 SYNOPSIS
+      # app.psgi
       use HTML::Mason::PSGIHandler;
 
+      my $h = HTML::Mason::PSGIHandler->new(
+          comp_root => "/path/to/doc_root", # required
+      );
+
+      my $handler = sub {
+          my $env = shift;
+          $h->handle_psgi($env);
+      };
+
 DESCRIPTION
-    HTML::Mason::PSGIHandler is
+    HTML::Mason::PSGIHandler is a PSGI handler for HTML::Mason. It's based
+    on HTML::Mason::CGIHandler and allows you to load Mason ".html" files on
+    any web servers that support PSGI.
 
 AUTHOR
     Tatsuhiko Miyagawa <miyagawa@bulknews.net>
@@ -15,3 +27,5 @@ LICENSE
     under the same terms as Perl itself.
 
 SEE ALSO
+    CGI::PSGI Plack PSGI HTML::Mason::CGIHandler
+
