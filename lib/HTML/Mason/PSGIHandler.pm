@@ -60,6 +60,8 @@ package HTML::Mason::Request::PSGI;
 use strict;
 use base qw(HTML::Mason::Request::CGI);
 
+use HTML::Mason::Exceptions;
+
 sub exec {
     my $self = shift;
     my $r = $self->cgi_request;
